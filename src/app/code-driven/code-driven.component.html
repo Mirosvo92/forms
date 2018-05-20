@@ -1,0 +1,52 @@
+<form class="profile__form" autocomplete="off" (ngSubmit)="addUser(form)" #form="ngForm" >
+  <!-- inputs -->
+  <div class="profile__form-data">
+    <!-- Username -->
+    <div class="form-block">
+      <span class="form-block__name">User name</span>
+      <input class="form-block__input"
+             type="text"
+             name="name"
+             required
+             (keydown)="checkLeng()"
+             #name="ngModel"
+             appOnlyNumber
+             ngModel />
+      <span class="error-text" *ngIf="!isEnglish">Only English</span>
+    </div>
+    <!-- Password -->
+    <div class="form-block">
+      <span class="form-block__name">Password</span>
+      <input class="form-block__input"
+             type="password"
+             name="password"
+             required
+             minlength="8"
+             #password="ngModel"
+             ngModel />
+      <span class="error-text" *ngIf="password.value?.length < 8 && password.touched">at least 8 characters</span>
+    </div>
+    <!-- password confirmation -->
+    <div class="form-block">
+      <span class="form-block__name">Password confirmation</span>
+      <input class="form-block__input"
+             type="password"
+             required
+             ngModel
+             appCoincidencePassword="{{password.value}}"
+             minlength="8"
+             #passwordConfirmation="ngModel"
+             name="passwordConfirmation" />
+            <span class="error-text" *ngIf="passwordConfirmation.value?.length < 8 && passwordConfirmation.touched">at least 8 characters</span>
+    </div>
+    <span class="help-block error-text"
+          *ngIf="passwordConfirmation.touched && passwordConfirmation.errors?.notEqual &&
+          !passwordConfirmation.errors?.required">
+          Password and Confirm Password does not match
+    </span>
+    <!-- buttons -->
+    <div class="form-buttons-block">
+      <button type="submit" class="save-button" [disabled]="!form.valid">Save</button>
+    </div>
+  </div>
+</form>
