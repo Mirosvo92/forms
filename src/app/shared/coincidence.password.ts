@@ -15,12 +15,9 @@ export class CoincidencePasswordDirective implements Validator {
   @Input() appCoincidencePassword: string;
 
   validate(control: AbstractControl): { [key: string]: any } | null {
-    const controlToCompare = control.parent.get(this.appCoincidencePassword);
-    console.log(this.appCoincidencePassword);
-    if (controlToCompare && controlToCompare.value !== control.value) {
+    if (this.appCoincidencePassword !== control.value) {
       return { 'notEqual': true };
     }
-
     return null;
   }
 }

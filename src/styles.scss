@@ -148,6 +148,9 @@ input.ng-invalid.ng-touched{
   color: red;
 }
 
+.secure-font{
+  -webkit-text-security:disc;}
+
 @media (max-width: 1250px) {
   .photo-buttons-block{
     padding: 0;

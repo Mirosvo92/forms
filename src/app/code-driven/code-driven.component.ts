@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserServece} from '../shared/user-servece';
 import {NgForm} from '@angular/forms';
 import {OnlyEnglishDirective} from '../shared/onlyEnglish.directive';
+import {User} from '../shared/User.model';
 
 @Component({
   selector: 'app-code-driven',
@@ -20,9 +21,10 @@ export class CodeDrivenComponent implements OnInit {
   }
 
   addUser() {
-    // const {login, password, password_confirmation} = {};
-    // const user = new User(login, password, password_confirmation);
-    // this.userServece.setUser(user).subscribe(data => console.log(data));
+    const {login, password, password_confirmation} = this.form.value;
+    const user = new User(login, password, password_confirmation);
+    console.log(this.form.value);
+    this.userServece.setUser(user).subscribe(data => console.log(data));
   }
 
   checkLeng() {

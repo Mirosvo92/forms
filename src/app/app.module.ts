@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {OnlyEnglishDirective} from './shared/onlyEnglish.directive';
 import {AppRoutingModule} from './app-routing.module';
 import {CoincidencePasswordDirective} from './shared/coincidence.password';
+import {CheckUserDirective} from './shared/checkUser.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {CoincidencePasswordDirective} from './shared/coincidence.password';
     FromServerComponent,
     ListFormsComponent,
     OnlyEnglishDirective,
-    CoincidencePasswordDirective
+    CoincidencePasswordDirective,
+    CheckUserDirective
   ],
   imports: [
     BrowserModule,
