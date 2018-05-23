@@ -46,21 +46,27 @@ export class CheckUserDirective implements Validator {
     //     available ? null : {alreadyUsed: true})
     //   );
 
-    return timer(500).pipe(
-      switchMap(() => {
-        const params = new HttpParams().set('login', control.value);
-        return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
-          .pipe(map(event => {
-            if (event['status'] === 'ok') {
-              return null;
-            } else {
-              return {'loginError': true};
-            }
-          }), catchError(err => of({'error': true})));
-      })
-    );
+    // return timer(500).pipe(
+    //   switchMap(() => {
+    //     const params = new HttpParams().set('login', control.value);
+    //
+    //     return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
+    //       .subscribe((event) => {
+    //         if (event['status'] === 'ok') {
+    //           return null;
+    //           resolve(null);
+    //         }
+    //       }, (error) => {
+    //         reject(error);
+    //       });
 
-  }
+        return timer(500).pipe(
+          switchMap(() => {
+            const params = new HttpParams().set('login', control.value);
+            return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
+              .subscribe((event) => {})
+          }
+        );
 
   // loginAvailable(control: AbstractControl) {
   //   return timer(500).pipe(
