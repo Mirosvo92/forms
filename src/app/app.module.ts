@@ -13,6 +13,7 @@ import {OnlyEnglishDirective} from './shared/onlyEnglish.directive';
 import {AppRoutingModule} from './app-routing.module';
 import {CoincidencePasswordDirective} from './shared/coincidence.password';
 import {CheckUserDirective} from './shared/checkUser.directive';
+import { TextInputComponent } from './inputs/text-input/text-input.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {CheckUserDirective} from './shared/checkUser.directive';
     ListFormsComponent,
     OnlyEnglishDirective,
     CoincidencePasswordDirective,
-    CheckUserDirective
+    CheckUserDirective,
+    TextInputComponent
   ],
   imports: [
     BrowserModule,

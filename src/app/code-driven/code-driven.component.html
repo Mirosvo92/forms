@@ -2,53 +2,28 @@
   <!-- inputs -->
   <div class="profile__form-data">
     <!-- Username -->
-    <div class="form-block">
-      <span class="form-block__name">User name</span>
-      <input class="form-block__input"
-             type="text"
-             name="login"
-             required
-             [appCheckUser]=""
-             (keydown)="checkLeng(name)"
-             #name="ngModel"
-             appOnlyNumber
-             ngModel />
-      <span class="error-text" *ngIf="!isEnglish">Only English</span>
-      <!--<span class="error-text" *ngIf="name.errors?.userError">UserError</span>-->
-    </div>
+    <!--<div class="form-block">-->
+      <!--<span class="form-block__name">User name</span>-->
+      <!--<input class="form-block__input"-->
+             <!--type="text"-->
+             <!--name="login"-->
+             <!--(keydown)="checkLeng(name)"-->
+             <!--[(ngModel)]="dataForm.name"/>-->
+    <!--</div>-->
+
+    <app-text-input class="form-group" [inputTitle]="inputTitle" [testModel]="dataForm.name" ></app-text-input>
+
     <!-- Password -->
-    <div class="form-block">
+    <div class="form-block form-group">
       <span class="form-block__name">Password</span>
-      <input class="form-block__input"
-             type="password"
-             name="password"
-             required
-             minlength="8"
-             #password="ngModel"
-             ngModel />
-      <span class="error-text" *ngIf="password.value?.length < 8 && password.touched">at least 8 characters</span>
+      <input class="form-block__input form-control"
+             type="text"
+             [(ngModel)]="dataForm.password"
+             name="password"/>
     </div>
-    <!-- password confirmation -->
-    <div class="form-block">
-      <span class="form-block__name">Password confirmation</span>
-      <input class="form-block__input"
-             type="password"
-             required
-             ngModel
-             appCoincidencePassword="{{password.value}}"
-             minlength="8"
-             #passwordConfirmation="ngModel"
-             name="password_confirmation" />
-            <span class="error-text" *ngIf="passwordConfirmation.value?.length < 8 && passwordConfirmation.touched">at least 8 characters</span>
-    </div>
-    <!-- coincidence password -->
-    <span class="help-block error-text"
-          *ngIf="passwordConfirmation.touched && passwordConfirmation.errors?.notEqual">
-          Password and Confirm Password does not match
-    </span>
     <!-- buttons -->
     <div class="form-buttons-block">
-      <button type="submit" class="save-button" [disabled]="!form.valid">Save</button>
+      <button type="submit" class="save-button">Save</button>
     </div>
   </div>
 </form>

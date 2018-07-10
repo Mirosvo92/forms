@@ -14,17 +14,21 @@ export class CodeDrivenComponent implements OnInit {
   isEnglish = true;
   @ViewChild('form') form: NgForm;
   @ViewChild(OnlyEnglishDirective) test: OnlyEnglishDirective;
+  dataForm = {
+    name: 'Vladwer',
+    password: 'Miros'
+  };
+
+  inputTitle = 'User name';
 
   constructor(private userServece: UserServece) { }
 
   ngOnInit() {
+
   }
 
   addUser() {
-    const {login, password, password_confirmation} = this.form.value;
-    const user = new User(login, password, password_confirmation);
-    console.log(this.form.value);
-    this.userServece.setUser(user).subscribe(data => console.log(data));
+    console.log(this.form);
   }
 
   checkLeng() {
