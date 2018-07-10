@@ -46,6 +46,20 @@ export class CheckUserDirective implements Validator {
     //     available ? null : {alreadyUsed: true})
     //   );
 
+    // return timer(500).pipe(
+    //   switchMap(() => {
+    //     const params = new HttpParams().set('login', control.value);
+    //
+    //     return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
+    //       .subscribe((event) => {
+    //         if (event['status'] === 'ok') {
+    //           return null;
+    //           resolve(null);
+    //         }
+    //       }, (error) => {
+    //         reject(error);
+    //       });
+
     return timer(500).pipe(
       switchMap(() => {
         const params = new HttpParams().set('login', control.value);
@@ -59,8 +73,6 @@ export class CheckUserDirective implements Validator {
           }), catchError(err => of({'error': true})));
       })
     );
-
-  }
 
   // loginAvailable(control: AbstractControl) {
   //   return timer(500).pipe(
@@ -88,4 +100,31 @@ export class CheckUserDirective implements Validator {
   //       }));
   //   });
   // }
+
+    // return timer(500).pipe(
+    //   switchMap(() => {
+    //       const params = new HttpParams().set('login', control.value);
+    //       return new Promise((resolve, reject) => {
+    //         return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
+    //           .subscribe( (event) => {
+    //             console.log(event);
+    //             if (event['status'] === 'ok') {
+    //               resolve(null);
+    //             }
+    //           }, (error => {
+    //             console.log(error);
+    //             reject(error);
+    //           }));
+    //       }).then(
+    //         result => {
+    //           // первая функция-обработчик - запустится при вызове resolve
+    //           return null;
+    //         },
+    //         error => {
+    //           // вторая функция - запустится при вызове reject
+    //           return {'loginError': true};
+    //         }
+    //       );
+    //     }
+    //   );
 }
