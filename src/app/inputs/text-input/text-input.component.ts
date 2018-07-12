@@ -9,12 +9,25 @@ import {ControlContainer, NgForm} from '@angular/forms';
 })
 export class TextInputComponent implements OnInit {
 
-  @Input() testModel;
+  @Input() testModel = [];
   @Input() inputTitle;
+  @Input() name;
+  first = 'sdf';
+  second = 'second';
 
   constructor() { }
 
   ngOnInit() {
+    // this.name = [this.name];
+    // this.testModel = [this.testModel];
+  }
+
+  ddddd() {
+    this.testModel = [this.testModel];
+  }
+
+  onBlurMethod() {
+    this.testModel = [this.testModel];
   }
 
 }

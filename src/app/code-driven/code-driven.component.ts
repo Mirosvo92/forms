@@ -15,8 +15,9 @@ export class CodeDrivenComponent implements OnInit {
   @ViewChild('form') form: NgForm;
   @ViewChild(OnlyEnglishDirective) test: OnlyEnglishDirective;
   dataForm = {
-    name: 'Vladwer',
-    password: 'Miros'
+    name: ['Vladwer'],
+    password: 'Miros',
+    nameInput: 'myinput'
   };
 
   inputTitle = 'User name';
@@ -25,6 +26,13 @@ export class CodeDrivenComponent implements OnInit {
 
   ngOnInit() {
 
+    // this.form.setValue({
+    //   password: 'sdf'
+    // });
+
+  }
+  asdasdsad() {
+    console.log(this.form.value.myinput[0][0]);
   }
 
   addUser() {

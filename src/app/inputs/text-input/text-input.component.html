@@ -2,6 +2,9 @@
   <span class="form-block__name">{{inputTitle}}</span>
   <input class="form-block__input form-control"
          type="text"
-         name="login"
+         [name]="name"
+         (blur)="onBlurMethod()"
          [(ngModel)]="testModel"/>
 </div>
+
+<button (click)="ddddd()"></button>

@@ -74,32 +74,32 @@ export class CheckUserDirective implements Validator {
       })
     );
 
-  // loginAvailable(control: AbstractControl) {
-  //   return timer(500).pipe(
-  //     switchMap(() => {
-  //       const params = new HttpParams().set('login', control.value);
-  //       return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
-  //         .pipe(map(event => {
-  //           if (event['status'] === 'ok') {
-  //             return null;
-  //           } else {
-  //             return {'loginError': true};
-  //           }
-  //         }), catchError(err => of({'error': true})));
-  //     })
-  //   );
-  // }
+    // loginAvailable(control: AbstractControl) {
+    //   return timer(500).pipe(
+    //     switchMap(() => {
+    //       const params = new HttpParams().set('login', control.value);
+    //       return this.httpClient.get('http://winter-pine-4182.getsandbox.com/login', {params})
+    //         .pipe(map(event => {
+    //           if (event['status'] === 'ok') {
+    //             return null;
+    //           } else {
+    //             return {'loginError': true};
+    //           }
+    //         }), catchError(err => of({'error': true})));
+    //     })
+    //   );
+    // }
 
-  // checkUser(user: string) {
-  //   return new Observable(observer => {
-  //     this.httpClient.get(`http://winter-pine-4182.getsandbox.com/login?login=${user}`)
-  //       .subscribe(data => {
-  //         observer.next(null);
-  //       }, (error => {
-  //         observer.next({userError: true});
-  //       }));
-  //   });
-  // }
+    // checkUser(user: string) {
+    //   return new Observable(observer => {
+    //     this.httpClient.get(`http://winter-pine-4182.getsandbox.com/login?login=${user}`)
+    //       .subscribe(data => {
+    //         observer.next(null);
+    //       }, (error => {
+    //         observer.next({userError: true});
+    //       }));
+    //   });
+    // }
 
     // return timer(500).pipe(
     //   switchMap(() => {
@@ -127,4 +127,7 @@ export class CheckUserDirective implements Validator {
     //       );
     //     }
     //   );
+
+  }
+
 }

@@ -11,7 +11,7 @@
              <!--[(ngModel)]="dataForm.name"/>-->
     <!--</div>-->
 
-    <app-text-input class="form-group" [inputTitle]="inputTitle" [testModel]="dataForm.name" ></app-text-input>
+    <app-text-input class="form-group" [inputTitle]="inputTitle" [testModel]="dataForm.name" [name]="dataForm.nameInput" ></app-text-input>
 
     <!-- Password -->
     <div class="form-block form-group">
@@ -21,10 +21,13 @@
              [(ngModel)]="dataForm.password"
              name="password"/>
     </div>
+    <button (click)="asdasdsad()" ></button>
     <!-- buttons -->
     <div class="form-buttons-block">
       <button type="submit" class="save-button">Save</button>
     </div>
   </div>
 </form>
+
+
 <!--https://medium.com/@a.yurich.zuev/angular-nested-template-driven-form-4a3de2042475-->
