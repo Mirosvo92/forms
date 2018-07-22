@@ -1,15 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Optional} from '@angular/core';
 import {ControlContainer, NgForm} from '@angular/forms';
+
+function controlContainerFactory(controlContainer?: ControlContainer) {
+  return controlContainer;
+}
 
 @Component({
   selector: 'app-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss'],
-  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
+  viewProviders: [
+    {
+      provide: ControlContainer,
+      useFactory: controlContainerFactory,
+      deps: [[new Optional(), NgForm]]
+    }
+  ]
 })
+
 export class TextInputComponent implements OnInit {
 
-  @Input() testModel = [];
+  @Input() testModel;
   @Input() inputTitle;
   @Input() name;
   first = 'sdf';

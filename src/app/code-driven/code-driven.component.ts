@@ -1,21 +1,23 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserServece} from '../shared/user-servece';
-import {NgForm} from '@angular/forms';
+import {ControlContainer, NgForm} from '@angular/forms';
 import {OnlyEnglishDirective} from '../shared/onlyEnglish.directive';
 import {User} from '../shared/User.model';
 
 @Component({
   selector: 'app-code-driven',
   templateUrl: './code-driven.component.html',
-  styleUrls: ['./code-driven.component.scss']
+  styleUrls: ['./code-driven.component.scss'],
+  // viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ],
 })
 export class CodeDrivenComponent implements OnInit {
 
   isEnglish = true;
   @ViewChild('form') form: NgForm;
   @ViewChild(OnlyEnglishDirective) test: OnlyEnglishDirective;
+  @ViewChild('addressFieldsForm') public form: NgForm;
   dataForm = {
-    name: ['Vladwer'],
+    name: 'Vladwer',
     password: 'Miros',
     nameInput: 'myinput'
   };
